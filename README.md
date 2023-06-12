@@ -1,6 +1,7 @@
 <div align="center">
 <img src="public/icon.png" alt="logo"/>
 <h1> X岛匿名版移动端订阅查看插件</h1>
+</div>
 
 # 安装方式
 - 打开 chrome://extensions/
