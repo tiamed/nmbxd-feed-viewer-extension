@@ -2,7 +2,7 @@ import react from '@vitejs/plugin-react-swc';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import makeManifest from './utils/plugins/make-manifest';
-import buildContentScript from './utils/plugins/build-content-script';
+import makeRules from './utils/plugins/make-rules';
 import { outputFolderName } from './utils/constants';
  
 const root = resolve(__dirname, 'src');
@@ -19,7 +19,7 @@ export default defineConfig({
       '@pages': pagesDir,
     },
   },
-  plugins: [react(), makeManifest(), buildContentScript()],
+  plugins: [react(), makeManifest(), makeRules()],
   publicDir,
   build: {
     outDir,
@@ -27,11 +27,8 @@ export default defineConfig({
     emptyOutDir: false,
     rollupOptions: {
       input: {
-        devtools: resolve(pagesDir, 'devtools', 'index.html'),
-        panel: resolve(pagesDir, 'panel', 'index.html'),
         background: resolve(pagesDir, 'background', 'index.ts'),
         popup: resolve(pagesDir, 'popup', 'index.html'),
-        newtab: resolve(pagesDir, 'newtab', 'index.html'),
         options: resolve(pagesDir, 'options', 'index.html'),
       },
       output: {

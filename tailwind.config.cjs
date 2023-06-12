@@ -3,10 +3,16 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        'spin-slow': 'spin 20s linear infinite',
-      }
+        "spin-slow": "spin 20s linear infinite",
+      },
     },
   },
-  prefix: '',
-  plugins: [],
-}
+  prefix: "",
+  plugins: [
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    require("@catppuccin/tailwindcss")({
+      prefix: "ctp",
+      defaultFlavour: "mocha",
+    }),
+  ],
+};
