@@ -147,18 +147,18 @@ export default function Popup(): JSX.Element {
                 <div className="text-ctp-text">No.{item.id}</div>
                 <div className="text-ctp-subtext0 tabular-nums">{item.now}</div>
               </div>
-              <div className="flex items-center justify-end gap-1.5 mt-1">
+              <div className="flex items-start justify-end gap-1.5 mt-1">
                 <div className="flex flex-col items-start grow">
                   <div className="text-ctp-text/50">{item.title}</div>
                   <div className="text-ctp-text/50">{item.name}</div>
                 </div>
                 <div
-                  className="relative flex justify-center items-center before:absolute before:content[''] before:-left-3 before:-right-3 before:-top-3 before:-bottom-3 cursor-pointer"
+                  className="relative block before:absolute before:content[''] before:-left-3 before:-right-3 before:-top-3 before:-bottom-3 cursor-pointer"
                   onClick={(e) => {
                     e.stopPropagation();
                     deleteFeed(item.id);
                   }}>
-                  <Delete12Regular className="text-ctp-red" />
+                  <Delete12Regular className="text-ctp-red" style={{ verticalAlign: "-1.5px" }} />
                 </div>
                 <div className="text-ctp-flamingo">{item.reply_count}</div>
                 <div className="text-ctp-rosewater">
