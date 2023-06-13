@@ -34,7 +34,7 @@ export default function Options(): JSX.Element {
     updateStorage("nmbFeedTheme", theme);
   }, [theme]);
   return (
-    <div className={`container ${theme}`}>
+    <div className={`container ${theme} relative`}>
       <label className="item">
         <div className="label">订阅ID</div>
         <input
@@ -53,6 +53,12 @@ export default function Options(): JSX.Element {
           <option value="ctp-latte">latte</option>
         </select>
       </label>
+      <footer>
+        <a onClick={() => window.open("https://github.com/tiamed/nmbxd-feed-viewer-extension")}>
+          Github
+        </a>
+        <a onClick={() => window.open("https://www.nmbxd1.com/")}>X岛</a>
+      </footer>
     </div>
   );
 }

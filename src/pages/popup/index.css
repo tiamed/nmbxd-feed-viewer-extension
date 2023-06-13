@@ -2,35 +2,35 @@
 @tailwind utilities;
 
 body {
-  width: 400px;
-  height: 600px;
-  margin: 0;
+  display: contents;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  position: relative;
-  @apply bg-ctp-base;
 }
 
 #__root {
-  display: contents;
+  width: 400px;
+  height: 600px;
+  margin: 0;
+  position: relative;
+  overflow: auto;
+  @apply bg-ctp-base;
 }
 
-body::-webkit-scrollbar {
+#__root::-webkit-scrollbar {
   width: 5px;
 }
 
-body::-webkit-scrollbar-track {
+#__root::-webkit-scrollbar-track {
   @apply bg-ctp-surface0;
 }
 
-body::-webkit-scrollbar-thumb {
+#__root::-webkit-scrollbar-thumb {
   @apply bg-ctp-surface1;
 }
 
-body::-webkit-scrollbar-thumb:hover {
+#__root::-webkit-scrollbar-thumb:hover {
   @apply bg-ctp-surface2;
 }

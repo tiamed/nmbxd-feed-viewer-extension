@@ -28,3 +28,27 @@
 input, select {
   @apply bg-ctp-overlay0 text-ctp-subtext1 p-1;
 }
+
+footer {
+  @apply absolute bottom-0 p-2 flex gap-2;
+}
+
+footer a {
+  @apply cursor-pointer underline text-ctp-blue;
+}
+
+body {
+  overflow: auto;
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  @apply bg-ctp-surface0;
+}
+
+body::-webkit-scrollbar-thumb {
+  @apply bg-ctp-surface1 hover:bg-ctp-surface2;
+}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useInfiniteScroll } from "ahooks";
+import { Delete12Regular } from "@fluentui/react-icons";
 
 interface FeedItem {
   id: string;
@@ -53,7 +54,20 @@ export default function Popup(): JSX.Element {
     }
   };
 
-  const { data, loading, loadMore, loadingMore } = useInfiniteScroll(
+  const deleteFeed = async (id: string) => {
+    if (window.confirm("确认删除订阅?")) {
+      try {
+        await fetch(`https://www.nmbxd1.com/Api/delFeed?uuid=${feedId}&tid=${id}`);
+        window.alert("删除成功");
+        reload();
+      } catch (error) {
+        console.log(error);
+        window.alert("删除失败");
+      }
+    }
+  };
+
+  const { data, loading, loadMore, loadingMore, reload } = useInfiniteScroll(
     async (d) => {
       const page = d ? Math.ceil(d.list.length / PAGE_SIZE) + 1 : 1;
       const { list, hasMore } = await getLoadMoreList(feedId, page);
@@ -120,20 +134,32 @@ export default function Popup(): JSX.Element {
   }, [feedId, loading, loadingMore, data?.hasMore]);
 
   return (
-    <div className="text-center p-3 overflow-auto bg-ctp-base">
+    <div className="text-center p-3 bg-ctp-base">
       {feedId ? (
-        <ul className="flex flex-col flex-nowrap items-center justify-center gap-2 text-xs text-ctp-text">
+        <ul className="flex flex-col flex-nowrap items-center justify-center gap-2 text-xs text-ctp-text select-none">
           {data?.list?.map((item: FeedItem) => (
             <li
               key={item.id}
-              className="w-full border-b border-b-ctp-surface1 pb-2 cursor-pointer"
+              className="w-full border-b border-b-ctp-surface1 pb-2"
               onClick={() => window.open(`https://www.nmbxd1.com/t/${item.id}`)}>
               <div className="flex justify-between">
-                <div className="text-ctp-text">{item.user_hash}</div>
+                <div className="text-ctp-text text-start w-16">{item.user_hash}</div>
                 <div className="text-ctp-text">No.{item.id}</div>
-                <div className="text-ctp-subtext0">{item.now}</div>
+                <div className="text-ctp-subtext0 tabular-nums">{item.now}</div>
               </div>
-              <div className="flex justify-end gap-2">
+              <div className="flex items-center justify-end gap-1.5 mt-1">
+                <div className="flex flex-col items-start grow">
+                  <div className="text-ctp-text/50">{item.title}</div>
+                  <div className="text-ctp-text/50">{item.name}</div>
+                </div>
+                <div
+                  className="relative flex justify-center items-center before:absolute before:content[''] before:-left-3 before:-right-3 before:-top-3 before:-bottom-3 cursor-pointer"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    deleteFeed(item.id);
+                  }}>
+                  <Delete12Regular className="text-ctp-red" />
+                </div>
                 <div className="text-ctp-flamingo">{item.reply_count}</div>
                 <div className="text-ctp-rosewater">
                   {forums?.find((forum) => forum.id === item.fid)?.name}

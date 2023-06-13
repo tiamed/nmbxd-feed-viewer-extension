@@ -10,10 +10,12 @@
   },
   "scripts": {
     "build": "vite build",
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "release": "standard-version commitizen"
   },
   "type": "module",
   "dependencies": {
+    "@fluentui/react-icons": "^2.0.203",
     "ahooks": "^3.7.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -40,6 +42,7 @@
     "fs-extra": "^11.1.0",
     "nodemon": "^2.0.20",
     "postcss": "^8.4.21",
+    "standard-version": "^9.5.0",
     "tailwindcss": "^3.2.4",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.4",
