@@ -21,7 +21,9 @@ jobs:
           name: dist
           path: |
             dist
+      - name: Zip file
+        run: zip -r dist.zip dist/
       - name: Create release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "dist/*"
+          artifacts: "dist.zip"
