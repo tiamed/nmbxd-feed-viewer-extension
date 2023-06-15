@@ -1,12 +1,26 @@
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.contentScriptQuery === 'fetchUrl') {
-    fetch(request.url, request.options)
-      .then((response) => {
-        response.json().then((json) => {
-          sendResponse({ response: json });
-        })
-      })
-      .catch((error) => sendResponse({ error: error.toJSON ? error.toJSON() : error }));
-    return true; // Will respond asynchronously.
+const filter = {
+  url: [
+    {
+      urlMatches: "https://www.nmbxd1.com/t/",
+    },
+  ],
+};
+
+async function updatePageFromUrl(url: string) {
+  const urlObject = new URL(url);
+  const page = urlObject.searchParams.get("page");
+  const tid = urlObject.pathname.split("/t/")?.[1];
+  if (page) {
+    const { nmbPages = {} } = await chrome.storage.sync.get("nmbPages");
+    chrome.storage.sync.set({ nmbPages: { ...nmbPages, [tid]: page } });
   }
-});
+}
+
+chrome.webNavigation.onCompleted.addListener((details) => {
+  updatePageFromUrl(details.url);
+}, filter);
+
+chrome.webNavigation.onHistoryStateUpdated.addListener((details) => {
+  updatePageFromUrl(details.url);
+  chrome.tabs.sendMessage(details.tabId, { type: "historyUpdated" });
+}, filter);

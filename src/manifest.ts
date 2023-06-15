@@ -29,7 +29,7 @@ const manifest: Manifest.WebExtensionManifest = {
       },
     ],
   },
-  permissions: ["storage", "declarativeNetRequest", "declarativeNetRequestFeedback"],
+  permissions: ["storage", "declarativeNetRequest", "declarativeNetRequestFeedback", "webNavigation"],
   host_permissions: ["https://www.nmbxd1.com/*"],
   content_scripts: [
     {
