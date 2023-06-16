@@ -37,18 +37,23 @@ async function addPageQueryToReply(el: Element) {
   }
 }
 
-function init() {
+function init(refresh = false) {
   switch (true) {
     case window.location.pathname.startsWith("/t/"):
-      addSubscriptionByPath();
+      if (!refresh) {
+        addSubscriptionByPath();
+      }
       break;
     case window.location.pathname.startsWith("/f/") ||
       window.location.pathname.startsWith("/Forum/"):
       try {
         const threadDoms = document.querySelectorAll(".h-threads-list > [data-threads-id]");
         threadDoms.forEach((threadDom) => {
-          addSubScriptionByElement(threadDom);
-          addPageQueryToReply(threadDom);
+          if (!threadDom.getAttribute("data-extension-modified")) {
+            addSubScriptionByElement(threadDom);
+            addPageQueryToReply(threadDom);
+            threadDom.setAttribute("data-extension-modified", "true");
+          }
         });
       } catch (e) {
         console.error(e);
@@ -63,9 +68,11 @@ init();
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.type === "historyUpdated") {
-    init();
+    init(true);
   }
   sendResponse();
 });
 
-new MutationObserver(init).observe(document.querySelector(".h-threads-list")!, { childList: true });
+new MutationObserver(() => init(false)).observe(document.querySelector(".h-threads-list")!, {
+  childList: true,
+});
