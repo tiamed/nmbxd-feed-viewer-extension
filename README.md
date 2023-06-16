@@ -6,10 +6,7 @@
 </div>
 
 # 安装方式
-- [下载](https://github.com/tiamed/nmbxd-feed-viewer-extension/releases)压缩包
-- 打开 chrome://extensions/
-- 打开开发者模式
-- 加载已解压的扩展程序
+- [Chrome应用商店](https://chrome.google.com/webstore/detail/x%E5%B2%9B%E5%8C%BF%E5%90%8D%E7%89%88%E8%AE%A2%E9%98%85%E5%99%A8/joipfehcpdlkelfihnodfepobadfgpke)
 
 # 使用方式
 - 固定本插件
