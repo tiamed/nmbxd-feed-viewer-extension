@@ -143,13 +143,16 @@ export default function Popup(): JSX.Element {
               className="w-full border-b border-b-ctp-surface1 pb-2"
               onClick={async () => {
                 const url = new URL(`https://www.nmbxd1.com/t/${item.id}`);
-                const {
-                  nmbPages: { [item.id]: page },
-                } = await chrome.storage.sync.get("nmbPages");
-                if (page) {
-                  url.searchParams.set("page", page);
+                try {
+                  const {
+                    nmbPages: { [item.id]: page },
+                  } = await chrome.storage.sync.get("nmbPages");
+                  if (page) {
+                    url.searchParams.set("page", page);
+                  }
+                } finally {
+                  window.open(url.href, "_blank");
                 }
-                window.open(url.href, "_blank");
               }}>
               <div className="flex justify-between">
                 <div className="text-ctp-text text-start w-16">{item.user_hash}</div>

@@ -25,11 +25,15 @@ function addSubScriptionByElement(el: Element) {
 async function addPageQueryToReply(el: Element) {
   const tid = el.getAttribute("data-threads-id") ?? "";
   const replyDom = el.querySelector(".h-threads-info-reply-btn a");
-  const {
-    nmbPages: { [tid]: page },
-  } = await chrome.storage.sync.get("nmbPages");
-  if (page) {
-    replyDom?.setAttribute("href", `/t/${tid}?page=${page}`);
+  try {
+    const {
+      nmbPages: { [tid]: page },
+    } = await chrome.storage.sync.get("nmbPages");
+    if (page) {
+      replyDom?.setAttribute("href", `/t/${tid}?page=${page}`);
+    }
+  } catch (e) {
+    console.info(e);
   }
 }
 
