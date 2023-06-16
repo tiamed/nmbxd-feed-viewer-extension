@@ -191,7 +191,7 @@ export default function Popup(): JSX.Element {
           </div>
         </ul>
       ) : (
-        initiated && <div className="text-ctp-text">右键进入选项设置订阅ID</div>
+        initiated && <div className="text-ctp-text">右键插件图标进入选项设置订阅ID</div>
       )}
     </div>
   );
