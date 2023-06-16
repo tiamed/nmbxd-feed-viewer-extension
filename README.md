@@ -14,3 +14,7 @@
 - 点击选项
 - 设置订阅ID
 - 点击插件图标即可查看订阅
+
+# 主题配色
+- [Catppuccin](https://github.com/catppuccin/catppuccin)
+- [匿名岛-Catppuccin](https://userstyles.world/style/6338/catppuccin)
