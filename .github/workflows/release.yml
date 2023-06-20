@@ -27,3 +27,11 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "dist.zip"
+      - name: Publish to webstore
+        uses: mnao305/chrome-extension-upload@v4.0.1
+        with:
+          file-path: dist.zip
+          extension-id: joipfehcpdlkelfihnodfepobadfgpke
+          client-id: ${{ secrets.CLIENT_ID }}
+          client-secret: ${{ secrets.CLIENT_SECRET }}
+          refresh-token: ${{ secrets.REFRESH_TOKEN }}
