@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.4](https://github.com/tiamed/nmbxd-feed-viewer-extension/compare/v1.1.3...v1.1.4) (2023-07-31)
+
+
+### Bug Fixes
+
+* windows颜文字显示修复 ([46eb78a](https://github.com/tiamed/nmbxd-feed-viewer-extension/commit/46eb78ac8de8977a852b227dd675f30402d42ad1))
+
 ### [1.1.3](https://github.com/tiamed/nmbxd-feed-viewer-extension/compare/v1.1.2...v1.1.3) (2023-07-27)
 
 
