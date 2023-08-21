@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.5](https://github.com/tiamed/nmbxd-feed-viewer-extension/compare/v1.1.4...v1.1.5) (2023-08-21)
+
+
+### Bug Fixes
+
+* 行数控制 ([a10c637](https://github.com/tiamed/nmbxd-feed-viewer-extension/commit/a10c637ff3127b44c11444d8de0430563e8392d7))
+
 ### [1.1.4](https://github.com/tiamed/nmbxd-feed-viewer-extension/compare/v1.1.3...v1.1.4) (2023-07-31)
 
 
