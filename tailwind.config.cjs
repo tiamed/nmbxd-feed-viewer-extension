@@ -5,6 +5,9 @@ module.exports = {
       animation: {
         "spin-slow": "spin 20s linear infinite",
       },
+      lineClamp: {
+        10: '10',
+      }
     },
   },
   prefix: "",

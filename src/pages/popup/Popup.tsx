@@ -177,7 +177,9 @@ export default function Popup(): JSX.Element {
                   {forums?.find((forum) => forum.id === item.fid)?.name}
                 </div>
               </div>
-              <div className="text-start" dangerouslySetInnerHTML={{ __html: item.content }}></div>
+              <div
+                className="text-start line-clamp-10"
+                dangerouslySetInnerHTML={{ __html: item.content }}></div>
             </li>
           ))}
           <div ref={loadMoreRef}>
