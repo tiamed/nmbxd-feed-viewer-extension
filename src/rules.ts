@@ -1,4 +1,4 @@
-import type { DeclarativeNetRequest } from 'webextension-polyfill';
+import type { DeclarativeNetRequest } from "webextension-polyfill";
 
 const rules: DeclarativeNetRequest.Rule[] = [
   {
@@ -15,7 +15,11 @@ const rules: DeclarativeNetRequest.Rule[] = [
         },
       ],
     },
-    condition: { regexFilter: "https://www.nmbxd1.com/*", resourceTypes: ["xmlhttprequest"], excludedInitiatorDomains: ["www.nmbxd1.com", "nmbxd1.com"] },
+    condition: {
+      regexFilter: "https://www.nmbxd1.com/Api/*",
+      resourceTypes: ["xmlhttprequest"],
+      // excludedInitiatorDomains: ["www.nmbxd1.com", "nmbxd1.com"],
+    },
   },
 ];
 
