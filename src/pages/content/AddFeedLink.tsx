@@ -13,6 +13,8 @@ export default function AddFeedLink({ tid }: { tid?: string }) {
     fetch(`https://www.nmbxd1.com/Api/addFeed?uuid=${feedId}&tid=${tid}`).then((res) => {
       if (res.ok) {
         window.alert("订阅成功");
+      } else {
+        window.alert("订阅失败: " + res.status);
       }
     });
   };
