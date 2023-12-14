@@ -13,13 +13,9 @@
       ]
     },
     "condition": {
-      "regexFilter": "https://www.nmbxd1.com/*",
+      "regexFilter": "https://www.nmbxd1.com/Api/*",
       "resourceTypes": [
         "xmlhttprequest"
-      ],
-      "excludedInitiatorDomains": [
-        "www.nmbxd1.com",
-        "nmbxd1.com"
       ]
     }
   }
