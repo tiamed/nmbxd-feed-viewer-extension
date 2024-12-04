@@ -16,7 +16,7 @@ export default function Options(): JSX.Element {
 }
 
 function Configurations() {
-  const [feedId, setFeedId] = useChromeStorage<string>("nmbFeedId", "ctp-mocha");
+  const [feedId, setFeedId] = useChromeStorage<string>("nmbFeedId", "");
   const [feedIds, setFeedIds] = useChromeStorage<string[]>("nmbFeedIds", []);
   const [theme, setTheme] = useChromeStorage<string>("nmbFeedTheme", "ctp-mocha");
   const [newFeedId, setNewFeedId] = useState<string>("");
