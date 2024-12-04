@@ -1,8 +1,7 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
-import "@pages/popup/index.css";
 import "@assets/styles/tailwind.css";
+import "@pages/popup/index.css";
 import Popup from "@pages/popup/Popup";
+import { createRoot } from "react-dom/client";
 
 async function init() {
   const { nmbFeedTheme } = await chrome.storage.sync.get("nmbFeedTheme");

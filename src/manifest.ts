@@ -8,6 +8,7 @@ const manifest: Manifest.WebExtensionManifest = {
   description: pkg.description,
   options_ui: {
     page: "src/pages/options/index.html",
+    open_in_tab: true,
   },
   background: {
     service_worker: "src/pages/background/index.js",
@@ -29,13 +30,18 @@ const manifest: Manifest.WebExtensionManifest = {
       },
     ],
   },
-  permissions: ["storage", "declarativeNetRequest", "declarativeNetRequestFeedback", "webNavigation"],
+  permissions: [
+    "storage",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "webNavigation",
+  ],
   host_permissions: ["https://www.nmbxd1.com/*"],
   content_scripts: [
     {
       matches: ["https://www.nmbxd1.com/*"],
-      js: ['src/pages/content/index.js'],
-      css: ['contentStyle.css'],
+      js: ["src/pages/content/index.js"],
+      css: ["contentStyle.css"],
     },
   ],
   web_accessible_resources: [

@@ -2,31 +2,71 @@
 
 .container {
   width: 100%;
-  min-height: 100px;
+  min-height: 100vh;
   font-size: 14px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
 
   @apply bg-ctp-base text-ctp-text p-20;
 }
 
 .item {
-  @apply flex justify-start items-center gap-1 w-full mb-2;
+  @apply flex justify-start items-start gap-1 w-full mb-4;
 }
 
 .label {
-  flex-basis: 20%;
-  @apply flex-shrink-0;
+  flex-basis: 120px;
+  @apply flex-shrink-0 p-2;
 }
 
 .label + * {
   @apply flex-auto;
 }
 
-input, select {
-  @apply bg-ctp-overlay0 text-ctp-subtext1 p-1;
+.configurations {
+  @apply w-full;
+}
+
+.feed-id-list {
+  @apply flex flex-col gap-1;
+}
+
+.feed-id-item {
+  @apply flex flex-row items-center gap-1 p-2;
+}
+
+.feed-id-radio {
+  display: contents;
+}
+
+.feed-id-delete {
+  @apply text-ctp-red;
+}
+
+.add-feed-id {
+  @apply flex flex-row gap-1;
+}
+
+input[type="radio"] {
+  @apply appearance-none w-3 h-3 border border-ctp-surface1 rounded-full cursor-pointer checked:bg-ctp-flamingo checked:border-ctp-flamingo;
+}
+
+input[type="radio"]:checked {
+  @apply bg-ctp-mauve;
+}
+
+input[type="radio"]:focus {
+  @apply ring-1 ring-ctp-mauve;
+}
+
+input:not([type="radio"]),
+select {
+  width: 200px;
+  max-width: 200px;
+
+  @apply bg-ctp-overlay0 text-ctp-subtext1 p-2 placeholder:text-ctp-subtext0;
 }
 
 footer {
